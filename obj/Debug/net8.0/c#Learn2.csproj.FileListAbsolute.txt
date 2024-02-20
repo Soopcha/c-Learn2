@@ -1,0 +1,15 @@
+C:\study\university\programming\c#\learn\c#Learn2\bin\Debug\net8.0\c#Learn2.exe
+C:\study\university\programming\c#\learn\c#Learn2\bin\Debug\net8.0\c#Learn2.deps.json
+C:\study\university\programming\c#\learn\c#Learn2\bin\Debug\net8.0\c#Learn2.runtimeconfig.json
+C:\study\university\programming\c#\learn\c#Learn2\bin\Debug\net8.0\c#Learn2.dll
+C:\study\university\programming\c#\learn\c#Learn2\bin\Debug\net8.0\c#Learn2.pdb
+C:\study\university\programming\c#\learn\c#Learn2\obj\Debug\net8.0\c#Learn2.GeneratedMSBuildEditorConfig.editorconfig
+C:\study\university\programming\c#\learn\c#Learn2\obj\Debug\net8.0\c#Learn2.AssemblyInfoInputs.cache
+C:\study\university\programming\c#\learn\c#Learn2\obj\Debug\net8.0\c#Learn2.AssemblyInfo.cs
+C:\study\university\programming\c#\learn\c#Learn2\obj\Debug\net8.0\c#Learn2.csproj.CoreCompileInputs.cache
+C:\study\university\programming\c#\learn\c#Learn2\obj\Debug\net8.0\c#Learn2.sourcelink.json
+C:\study\university\programming\c#\learn\c#Learn2\obj\Debug\net8.0\c#Learn2.dll
+C:\study\university\programming\c#\learn\c#Learn2\obj\Debug\net8.0\refint\c#Learn2.dll
+C:\study\university\programming\c#\learn\c#Learn2\obj\Debug\net8.0\c#Learn2.pdb
+C:\study\university\programming\c#\learn\c#Learn2\obj\Debug\net8.0\c#Learn2.genruntimeconfig.cache
+C:\study\university\programming\c#\learn\c#Learn2\obj\Debug\net8.0\ref\c#Learn2.dll
