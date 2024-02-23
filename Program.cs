@@ -6,13 +6,17 @@
     dotnet run - зпауск
 */
 
-using System; //юзаем библиотеку систем, ну типо уже гже-то прописано это
+using System;
+using System.Reflection.Metadata; //юзаем библиотеку систем, ну типо уже гже-то прописано это
 
-namespace project { //типо папка с файлами 
+namespace project
+{ //типо папка с файлами 
 
-    class Program {
-        
-        static void Main(){ //главная функция мейн
+    class Program
+    {
+
+        static void Main()
+        { //главная функция мейн
 
             Console.WriteLine("Хехее юзаем библиотеку и выводим");
             //Console.ReadKey(); //ждем пока пользователь что-то введет(1 символ) в терминале 
@@ -21,10 +25,10 @@ namespace project { //типо папка с файлами
             Console.Write("sdsd\n\n");
             Console.Write("00000");
 
-/*   комент - contrl + /
-если ошибка сборки мб это от того что запустила прогу и дот нет не читает
-и сохранять не забывай а то он не читает 
-*/
+            /*   комент - contrl + /
+            если ошибка сборки мб это от того что запустила прогу и дот нет не читает
+            и сохранять не забывай а то он не читает 
+            */
             Console.ReadLine();//читать строку
 
 
@@ -61,6 +65,7 @@ namespace project { //типо папка с файлами
             //так тоже можно писать
             int num_1 = 0, num_2 = 0;
             num_1 = Convert.ToInt32(Console.ReadLine()); //из стринга в инт
+            //тк ReadLine всегда читает тип стринг
 
             Console.WriteLine(" 1 " + num_1 + " 2 " + num_2);
 
@@ -70,7 +75,7 @@ namespace project { //типо папка с файлами
             // user_input = Convert.ToDouble(Console.ReadLine());
             user_input = float.Parse(Console.ReadLine());   //в коде точка в консоле точка на выводе что-то запятая
 
-            Console.WriteLine("переменная " + user_input); 
+            Console.WriteLine("переменная " + user_input);
 
 
             //мат действия
@@ -84,8 +89,8 @@ namespace project { //типо папка с файлами
             user_input /= 5f;
             user_input -= 5f;
 
-            user_input ++; //плюс 1
-            user_input --;
+            user_input++; //плюс 1
+            user_input--;
 
 
 
@@ -102,10 +107,10 @@ namespace project { //типо папка с файлами
             System.Console.WriteLine(Math.Max(5, 0));
 
             System.Console.WriteLine(Math.Pow(5, 2)); // степень 
-            
 
 
-            System.Console.WriteLine("хехех привет {0}   и  {1}",num_2,user_input);
+
+            System.Console.WriteLine("хехех привет {0}   и  {1}", num_2, user_input);
 
 
 
@@ -114,38 +119,132 @@ namespace project { //типо папка с файлами
             //Условные переменные
 
             int a = 5;
-            if(a ==5) {
+            if (a == 5)
+            {
                 System.Console.WriteLine("Number is 5 ");
             }
-            if(a !=5) {
+            if (a != 5)
+            {
                 System.Console.WriteLine("Number is not 5 ");
             }
 
 
             string word2 = "hello";
-            if(word2 == "hello") {
+            if (word2 == "hello")
+            {
                 System.Console.WriteLine("хай ");
             }
 
-            if(isHappy){// тоже самое что и isHappy == true
+            if (isHappy)
+            {// тоже самое что и isHappy == true
                 System.Console.WriteLine("хай счасть");
             }
 
-            if(!isHappy){ // тоже самое что и isHappy == false
+            if (!isHappy)
+            { // тоже самое что и isHappy == false
                 System.Console.WriteLine("  не хай  не счастье");
-            } else
+            }
+            else
             {
-                 System.Console.WriteLine("хай 2  счастье");
+                System.Console.WriteLine("хай 2  счастье");
             }
 
 
-            if(a > 7 ){ 
-                System.Console.WriteLine("  больше 7 ");
-            } else if ( a  < 3)    //else if может быть сколько угодно
+            if (a > 7)
             {
-                 System.Console.WriteLine(" меньше 3 ");
-            } else{
+                System.Console.WriteLine("  больше 7 ");
+            }
+            else if (a < 3)    //else if может быть сколько угодно
+            {
+                if (a == 2)
+                {
+                    System.Console.WriteLine(" меньше 3 ");
+                }
+            }
+            else
+            {
                 System.Console.WriteLine("другое");
+            }
+
+            if (a > 8) System.Console.WriteLine("a>8"); //можно скобки пропускать если 1 стр кода
+
+            if (a == 8 && isHappy)
+            {//и
+                System.Console.WriteLine("и");
+            }
+
+            if (a == 8 || isHappy)
+            {//или
+                System.Console.WriteLine("или");
+            }
+
+
+
+            short user_input2 = Convert.ToInt16(Console.ReadLine());
+
+            switch (user_input2)
+            { //в case нет фигурных {}
+                case 5:
+                    System.Console.WriteLine("Number is 5");
+                    break;
+                case 15:
+                    System.Console.WriteLine("Number is 15");
+                    break;
+                case 25:
+                    System.Console.WriteLine("Number is 25");
+                    break;
+                default:
+                    Console.WriteLine("number is unrecognized");
+                    break;
+
+            }
+
+
+
+
+
+            //циклы
+            for (byte i2 = 0; i2 <= 10; i2++)
+            {
+                System.Console.WriteLine("Element : {0}", i2);
+            }
+
+            for (byte j = 200; j > 10; j /= 2)
+                System.Console.WriteLine("Element : {0}", j); // можно и без скобок так же если 1 строчка
+
+
+            byte i = 0;
+            while (i < 10)
+            {
+                System.Console.WriteLine("El {0}", 1);
+                i--;
+            }
+
+            // isHappy = true;
+            // while (isHappy){
+            //     string end = Console.ReadLine();
+            //     if (end == "end"){
+            //         isHappy = false;
+            //     }
+            // }
+
+            //ОТЛИЧИЕ
+
+            //сто процентов 1 раз выполнится и потом только условие проверит
+            i = 11;
+            do
+            {
+                System.Console.WriteLine("do while check");
+            } while (i < 10);
+
+
+            for (i = 0; i <= 10; i++)
+            {
+                if (i > 5)
+                    break;
+                if (i % 2 == 0)
+                    continue;   //пропускает 1 круг цикла
+                System.Console.WriteLine("Element : {0}", i);
             }
         }
     }
