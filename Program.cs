@@ -8,6 +8,9 @@
 
 using System;
 using System.Reflection.Metadata; //юзаем библиотеку систем, ну типо уже гже-то прописано это
+using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
+using System.IO;
 
 namespace project
 { //типо папка с файлами 
@@ -246,7 +249,200 @@ namespace project
                     continue;   //пропускает 1 круг цикла
                 System.Console.WriteLine("Element : {0}", i);
             }
+
+
+            //массивы
+            byte[] nums = new byte[5];//выделяем память - new   от 0 до 4
+            nums[0] = 4;
+            nums[1] = 204;
+            nums[2] = 34;
+            nums[3] = 54;
+            nums[4] = 240;
+
+            System.Console.WriteLine("El :" + nums[0]);
+
+            string[] strings = new string[] { "Jon", "bob", "Alex" };
+            strings[1] = "Hehhhh no bob";
+
+            for (byte k = 0; k < nums.Length; k++)
+                System.Console.WriteLine("El  " + nums[k]);
+
+            short[] numbers = new short[10];
+            Random random = new Random();
+            for (byte k = 0; k < numbers.Length; k++)
+            {
+                numbers[k] = Convert.ToInt16(random.Next(-15, 15));
+                System.Console.WriteLine("El  " + numbers[k]);
+            }
+
+
+            //вложенные массивы
+            char[,] symbols = new char[2, 3];
+            symbols[0, 0] = 'H';
+            System.Console.WriteLine(symbols[0, 0]);
+
+            int[,] nums2 = {
+                {2, 3, 5},
+                {2, 343, 5},
+                {3, 3, 5},
+
+            };
+
+            nums2[1, 2] = 56;
+
+
+            //for - each 
+            foreach (short el in numbers)
+            { //берем переменную того же типа что и наш массивий
+              //переменная будет содержать значение каждого элемента нашего масиива
+                System.Console.WriteLine("Ellll  " + el);
+
+            }
+
+            foreach (short el in nums2)
+            {  // двумерные массивы тоже славно перебирает
+                System.Console.Write(" Ell222  " + el);
+
+            }
+            System.Console.WriteLine(" ");
+
+            //ДИНАМИЧЕСКИЕ МАССИВЫ
+            List<int> numList = new List<int>(){
+                4, 5, 6
+            };
+
+            numList.Add(40);
+            numList.Add(40);
+            numList.Add(43);
+            numList.Add(45);
+
+            foreach (int el in numList)
+            {
+                System.Console.Write(" List " + el);
+            }
+            System.Console.WriteLine();
+
+            numList.Remove(100); //удалить по значению не индексу
+            numList.Sort();
+            numList.Reverse();
+            //clear copyTo - клонирование и тд
+
+            foreach (int el in numList)
+            {
+                System.Console.Write(" List " + el);
+            }
+
+
+
+
+            //функциии  main - тоже функция
+            //методы - функции в классе
+            // те в C# по сути нет функций, а только методы но можно по фану и называть это функцией
+
+            Print();
+            Print();
+            Print2("хаайй");
+            Sum(3, 4);
+            int res2 = Sum2(5, 4);
+            Print2(res2.ToString());
+
+
+
+            System.Console.WriteLine();
+            System.Console.WriteLine();
+            //cстринг - массив символов char
+            string word4 = "heello";
+            System.Console.WriteLine(word4[3]);
+            System.Console.WriteLine(word4.Length);
+            System.Console.WriteLine(String.Concat(word4, "!!"));
+            System.Console.WriteLine(String.Compare(word4, "Hello")); // 0 - обе стр равны, -1 если нет
+
+
+            System.Console.WriteLine();
+            string people = "sd,sd,sd,sd,sd";
+            string[] names = people.Split(new char[] { ',' });
+            foreach (string el in names)
+                System.Console.Write(el);
+
+            people = String.Join(" ", names);
+            System.Console.WriteLine(people);
+
+
+            people = "          пробель";
+            people = people.Trim();//убирает пробели
+            System.Console.WriteLine(people);
+            //обрезать строку
+            System.Console.WriteLine(people.Substring(2));//удалены первые два эл
+            System.Console.WriteLine(people.Substring(0, people.Length - 1));//только ласт символ минус
+
+
+            //файлиии IO imput out strim
+            //вообще файлы мы должны открывать и закрывать но тк мы юзаем using то как би забили
+
+
+            //создали изолированное место
+            System.Console.WriteLine("Введите текст ");
+            string text = Console.ReadLine();
+            using (FileStream stream = new FileStream("info.txt", FileMode.OpenOrCreate))
+            {
+                //чтобы записать текст нужно перевести в байты
+                byte[] array = System.Text.Encoding.Default.GetBytes(text);
+
+                stream.Write(array, 0, array.Length); //без отсупа
+
+            }
+
+            using (FileStream stream1 = File.OpenRead("info.txt"))
+            {
+                byte[] array = new byte[stream1.Length];
+                stream1.Read(array, 0, array.Length); //начинаем читать без пропусков с 0 до конца строки
+
+                string textFromFile = System.Text.Encoding.Default.GetString(array);
+                System.Console.WriteLine(textFromFile);
+            }
+
+
+
+            //обработчик исключений
+            try
+            {
+                System.Console.WriteLine("введите  число ");
+                int num = Convert.ToInt32(Console.ReadLine());
+                System.Console.WriteLine(num);
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Вы ввели не тот формат");
+            } finally { //код сработает в любом случае
+                //например чтобы закрыть файл
+            }
+
+            //есть ещё DivideByZereoException и тд ошибки
+            //catch можно сколько угодно писать
         }
+
+        public static void Print()
+        { // заголовки с большой
+            System.Console.WriteLine("Hiii function");
+        }
+
+        public static void Print2(string word)
+        {
+            System.Console.WriteLine(word);
+        }
+        public static void Sum(int x, int y)
+        {
+            int res = x + y;
+            Print2("res  " + res);
+        }
+        public static int Sum2(int x, int y)
+        {
+            return x + y;
+        }
+
+
+
+
     }
 }
 

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("c#Learn2")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3ae780e1fc301640add2f1a494473ec878248a4d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ce07281728ef9da08ddf0425a29f2b3b51053af1")]
 [assembly: System.Reflection.AssemblyProductAttribute("c#Learn2")]
 [assembly: System.Reflection.AssemblyTitleAttribute("c#Learn2")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
